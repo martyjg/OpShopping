@@ -8,8 +8,8 @@ import {
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 
-export default class App extends Component<{}> {
-  
+export default class Home extends Component<{}> {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,7 @@ export default class App extends Component<{}> {
       error: null
     };
   }
-  
+
   componentDidMount() {
     // navigator.geolocation.getCurrentPosition(
     //   (position) => {
@@ -33,7 +33,7 @@ export default class App extends Component<{}> {
     //   { enableHighAccuracy: true, timeout: 2000, maximumAge: 1000 },
     // );
   }
-  
+
   render() {
     return (
       <View style={styles.container}>

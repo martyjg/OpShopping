@@ -12,22 +12,25 @@ import {
   View
 } from 'react-native';
 import Home from './app/screens/home';
+import Friends from './app/screens/friends';
+import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+import AppReducer from './app/reducers';
+import AppWithNavigationState from './app/navigators/AppNavigator';
 
 export default class App extends Component<{}> {
-  
+
+  store = createStore(AppReducer);
+
   render() {
     return (
-        <Home />
+      <Provider store={this.store}>
+        <AppWithNavigationState />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    flexDirection: 'column',
-  },
-});
+AppRegistry.registerComponent('App', () => App);
